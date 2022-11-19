@@ -6,7 +6,7 @@ const recipeSchema = new mongoose.Schema({
         default: ""
     },
     ingredients: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Ingredient'
     }]
 });
