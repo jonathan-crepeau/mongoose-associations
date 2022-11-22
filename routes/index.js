@@ -1,3 +1,4 @@
 module.exports = {
-    ingredient: require('./ingredientRoutes')
+    ingredient: require('./ingredientRoutes'),
+    recipe: require('./recipeRoutes')
 };

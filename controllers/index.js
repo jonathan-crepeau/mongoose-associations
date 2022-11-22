@@ -1,3 +1,4 @@
 module.exports = {
-    ingredient: require('./ingredientController')
+    ingredient: require('./ingredientController'),
+    recipe: require('./recipeController')
 };

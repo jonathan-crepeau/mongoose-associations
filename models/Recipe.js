@@ -6,6 +6,7 @@ const recipeSchema = new mongoose.Schema({
         default: ""
     },
     ingredients: [{
+        // NOTE - Referenced
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Ingredient'
     }]

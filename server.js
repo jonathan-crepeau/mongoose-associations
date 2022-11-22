@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
 app.use('/api/v1/ingredient', routes.ingredient);
 
 
+// SECTION - Recipe Routes
+app.use('/api/v1/recipe', routes.recipe);
+
+
 
 app.listen(PORT, () => {
     console.log(`Application is listening on ${PORT}...`);
