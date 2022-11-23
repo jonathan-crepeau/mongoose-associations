@@ -34,9 +34,43 @@ const find = (req, res) => {
     });
 };
 
+const findById = (req, res) => {
+    db.Recipe.findOne({name: req.params.name}, (err, foundRecipe) => {
+        if (err) return res.status(500).json({
+            message: "Something went wrong..",
+            error: err
+        });
+        res.json(foundRecipe);
+    });
+};
+
+const addIngredient = (req, res) => {
+    db.Recipe.findOne({name: req.body.name}, (err, foundRecipe) => {
+        if (err) return res.status(500).json({
+            message: "Something went wrong finding that recipe..",
+            error: err
+        })
+        const foundIngredient = db.Ingredients.findOne({title: req.body.ingredientName}, (err, foundIngredient) => {
+            if (err) return res.status(500).json({
+                message: "Something went wrong finding that ingredient..",
+                error: err
+            })
+            foundRecipe.ingredients.push(foundIngredient);
+            foundRecipe.save( (err, savedRecipe) => {
+                if (err) return res.status(500).json({
+                    error: err
+                })
+                res.json(savedRecipe);
+            });
+        });
+    });
+};
+
 module.exports = {
     test,
     create,
     index,
-    find
+    find,
+    findById,
+    addIngredient
 }
