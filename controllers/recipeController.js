@@ -14,7 +14,7 @@ const create = (req, res) => {
     });
 };
 
-const addIngredient = (req, res) => {
+const index = (req, res) => {
     db.Recipe.find({}, (err, foundRecipe) => {
         if (err) return res.status(500).json({
             message: 'Recipe not found..',
@@ -24,10 +24,10 @@ const addIngredient = (req, res) => {
     });
 };
 
-const show = (req, res) => {
-    db.Recipe.findById(req.params.id, (err, foundRecipe) => {
+const find = (req, res) => {
+    db.Recipe.findOne({name: req.body.name}, (err, foundRecipe) => {
         if (err) return res.status(500).json({
-            message: "Could not find specific recipe..",
+            message: "Could not find a recipe, something went wrong here..",
             error: err
         });
         res.json(foundRecipe);
@@ -37,6 +37,6 @@ const show = (req, res) => {
 module.exports = {
     test,
     create,
-    addIngredient,
-    show
+    index,
+    find
 }

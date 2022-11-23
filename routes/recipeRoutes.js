@@ -9,10 +9,10 @@ router.get('/test', controllers.recipe.test);
 router.post('/', controllers.recipe.create);
 
 // Index All Recipes
-router.get('/', controllers.recipe.addIngredient);
+router.get('/', controllers.recipe.index);
 
-// Index Recipe --> id
-router.get('/:id', controllers.recipe.show);
+// Find Recipe By Name
+router.get('/find', controllers.recipe.find);
 
 
 
