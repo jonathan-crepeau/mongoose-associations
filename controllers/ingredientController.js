@@ -16,7 +16,19 @@ const create = (req, res) => {
     });
 };
 
+// GET - Read/Retreive All Ingredients
+const getAllIngredients = (req, res) => {
+    db.Ingredients.find({}, (err, foundIngredients) => {
+        if (err) return res.status(500).json({
+            message: "Something went wrong fetching all ingredients..",
+            error: err
+        });
+        res.json(foundIngredients);
+    });
+};
+
 module.exports = {
     test,
-    create
+    create,
+    getAllIngredients
 };

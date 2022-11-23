@@ -8,4 +8,7 @@ router.get('/test', controllers.ingredient.test);
 // create route
 router.post('/', controllers.ingredient.create);
 
+// read all route
+router.get('/', controllers.ingredient.getAllIngredients);
+
 module.exports = router;

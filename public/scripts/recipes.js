@@ -6,8 +6,7 @@ const recipeList = document.getElementById('recipe-list');
 
 
 // SECTION - Event Handler (Add Recipe Button)
-const handleClick = (event) => {
-    event.preventDefault();
+const handleClick = (e) => {
     console.log('Add Recipe button clicked.');
 
     const newRecipe = {
@@ -44,7 +43,6 @@ const getAllRecipes = () => {
 }
 
 const render = (recipeArr) => {
-    console.log(recipeArr.length);
     const listItems = recipeArr.map((recipe) => {
         return `
             <li id=${recipe._id}>${recipe.name}</li>
