@@ -66,6 +66,9 @@ const addIngredient = (req, res) => {
     });
 };
 
+const listIngredients = (req, res) => {
+}
+
 module.exports = {
     test,
     create,
